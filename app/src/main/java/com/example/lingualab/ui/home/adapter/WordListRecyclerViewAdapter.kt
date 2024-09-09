@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lingualab.R
 import com.example.lingualab.data.model.Word
 
-class WordListRecyclerViewAdapter(private val wordList: List<Word>) :
+class WordListRecyclerViewAdapter(private val wordList: List<Word>,
+                                  val onClickVHolder: (Word) -> Unit) :
     RecyclerView.Adapter<WordListRecyclerViewAdapter.WordViewHolder>() {
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -30,5 +31,10 @@ class WordListRecyclerViewAdapter(private val wordList: List<Word>) :
         val word = wordList[position]
         holder.trMeanTextView.text = word.tr
         holder.engMeanTextView.text = word.en
+
+        holder.itemView.setOnClickListener {
+            onClickVHolder(word)
+        }
     }
+
 }

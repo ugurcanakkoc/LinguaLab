@@ -1,15 +1,18 @@
 package com.example.lingualab.ui.home
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.lingualab.data.model.Word
+import com.example.lingualab.data.sharedpreferences.SharedPreferencesRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val spRepository: SharedPreferencesRepository) :
+    ViewModel() {
 
-    private val _wordList = mutableListOf<Word>()
-    val wordList: List<Word> = _wordList
-
-
-    val allword = listOf(
+    private val allWord = listOf(
         Word(en = "Apple", tr = "Elma"),
         Word(en = "Ball", tr = "Top"),
         Word(en = "Cat", tr = "Kedi"),
@@ -60,13 +63,33 @@ class HomeViewModel : ViewModel() {
         Word(en = "Farm", tr = "Çiftlik"),
         Word(en = "Cow", tr = "İnek"),
         Word(en = "Chicken", tr = "Tavuk")
-    )
+    ).shuffled()
+    private val checkedList = mutableListOf<Word>()
+    private val _wordList = MutableLiveData<List<Word>>()
+    val wordList: LiveData<List<Word>> = _wordList
 
     init {
-        allword.forEach { word ->
-            _wordList.add(word)
-        }
+        checkedWordList()
     }
 
+    fun checkedWordList() {
+        checkedList.clear()
+        allWord.forEach {
+            if (!spRepository.isWordSaved(it)) {
+                checkedList.add(it)
+            }
+        }
+        _wordList.value = checkedList
+    }
 
+    fun saveAndRemoveWord(word: Word) {
+        saveWord(word)
+        val updatedList = _wordList.value?.toMutableList()
+        updatedList?.remove(word)
+        _wordList.value = updatedList!!
+    }
+
+    private fun saveWord(word: Word) {
+        spRepository.saveWord(word)
+    }
 }
