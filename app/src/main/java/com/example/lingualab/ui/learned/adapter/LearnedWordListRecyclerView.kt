@@ -14,7 +14,6 @@ class LearnedWordListRecyclerView(private val wordList: List<Word>,
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val trMeanTextView: TextView = itemView.findViewById(R.id.tr_mean)
-        val engMeanTextView: TextView = itemView.findViewById(R.id.eng_mean)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
@@ -26,7 +25,6 @@ class LearnedWordListRecyclerView(private val wordList: List<Word>,
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val word = wordList[position]
         holder.trMeanTextView.text = word.tr
-        holder.engMeanTextView.text = word.en
 
         holder.itemView.setOnClickListener {
             onClickVHolder(word)

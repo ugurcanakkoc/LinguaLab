@@ -2,8 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#FF808080</color>
+    <color name="background">#F0F4EE</color>
     <color name="background_box">#D6E6D1</color>
     <color name="background_popup">#E8EFE6</color>
 <color name="button_color">#f9c480</color>
+    <color name="navigation_bar">#D0E1D4</color>
 </resources>

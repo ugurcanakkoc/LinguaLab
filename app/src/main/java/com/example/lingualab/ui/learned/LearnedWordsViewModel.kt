@@ -19,6 +19,7 @@ class LearnedWordsViewModel @Inject constructor(private val spRepository: Shared
     }
 
     fun checkWordList(){
+
         _learnedWords.value = spRepository.getLearnedWords()
 
     }

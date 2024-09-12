@@ -54,15 +54,15 @@ class LearnedWordsFragment : Fragment() {
             .setView(popupBinding.root)
             .create()
 
-        val turkishWordEditText = popupBinding.turkishWord
-        val englishWordEditText = popupBinding.englishWord
+        val frenchWordText = popupBinding.frenchWord
+        val englishWordText = popupBinding.englishWord
         val addWordButton = popupBinding.addWordButton
         val closeButton = popupBinding.closeButton
         val elephantImage = popupBinding.elephantImageView
 
         elephantImage.setImageResource(R.drawable.sad_elephant)
-        turkishWordEditText.text = word.tr
-        englishWordEditText.text = word.en
+        frenchWordText.text = word.fr
+        englishWordText.text = word.en
         addWordButton.text = "Unuttum..."
 
         closeButton.setOnClickListener {

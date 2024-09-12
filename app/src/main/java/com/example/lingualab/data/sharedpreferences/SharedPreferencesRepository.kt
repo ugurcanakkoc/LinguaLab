@@ -2,6 +2,7 @@ package com.example.lingualab.data.sharedpreferences
 
 import android.content.SharedPreferences
 import com.example.lingualab.data.model.Word
+import com.example.lingualab.data.model.getBaseAllWords
 import javax.inject.Inject
 
 class SharedPreferencesRepository @Inject constructor(private val sharedPreferences: SharedPreferences) {
@@ -16,8 +17,13 @@ class SharedPreferencesRepository @Inject constructor(private val sharedPreferen
 
         val allEntries = sharedPreferences.all
         for ((key, value) in allEntries) {
-            val word = Word(en = key, tr = value as String)
-            learnedWords.add(word)
+            getBaseAllWords().forEach {
+                if (it.en == key) {
+                    val word = Word(en = key, tr = value as String, fr = it.fr)
+                    learnedWords.add(word)
+
+                }
+            }
         }
         return learnedWords
     }

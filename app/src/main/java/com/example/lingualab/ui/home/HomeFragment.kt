@@ -1,14 +1,10 @@
 package com.example.lingualab.ui.home
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -38,6 +34,9 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         val recyclerView = binding.rvWordList
+        val swipeRefreshLayout = binding.swipeRefresh
+
+
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.wordList.observe(viewLifecycleOwner, Observer { wordList ->
@@ -45,6 +44,10 @@ class HomeFragment : Fragment() {
             recyclerView.adapter = adapter
         })
         viewModel.checkedWordList()
+        swipeRefreshLayout.setOnRefreshListener {
+            viewModel.swipeRefresh()
+            swipeRefreshLayout.isRefreshing = false
+        }
         return view
     }
 
@@ -59,14 +62,14 @@ class HomeFragment : Fragment() {
             .setView(popupBinding.root)
             .create()
 
-        val turkishWordEditText = popupBinding.turkishWord
         val englishWordEditText = popupBinding.englishWord
+        val frenchWordEditText = popupBinding.frenchWord
         val addWordButton = popupBinding.addWordButton
         val closeButton = popupBinding.closeButton
         val elephantImage = popupBinding.elephantImageView
 
         elephantImage.setImageResource(R.drawable.happy_elephant)
-        turkishWordEditText.text = word.tr
+        frenchWordEditText.text = word.fr
         englishWordEditText.text = word.en
 
         closeButton.setOnClickListener {
