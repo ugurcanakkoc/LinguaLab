@@ -3,6 +3,7 @@ package com.example.lingualab.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.speech.tts.TextToSpeech
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,5 +18,11 @@ object AppModule {
     @Singleton
     fun provideSharedPreferences(app: Application): SharedPreferences {
         return app.getSharedPreferences("LinguaLabPrefs", Context.MODE_PRIVATE)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTextToSpeech(application: Application): TextToSpeech {
+        return TextToSpeech(application,null)
     }
 }

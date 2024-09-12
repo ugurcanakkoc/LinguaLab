@@ -64,6 +64,8 @@ class HomeFragment : Fragment() {
 
         val englishWordEditText = popupBinding.englishWord
         val frenchWordEditText = popupBinding.frenchWord
+        val enSoundButton = popupBinding.engSoundButton
+        val frSoundButton = popupBinding.frSoundButton
         val addWordButton = popupBinding.addWordButton
         val closeButton = popupBinding.closeButton
         val elephantImage = popupBinding.elephantImageView
@@ -71,6 +73,13 @@ class HomeFragment : Fragment() {
         elephantImage.setImageResource(R.drawable.happy_elephant)
         frenchWordEditText.text = word.fr
         englishWordEditText.text = word.en
+
+        enSoundButton.setOnClickListener {
+            viewModel.speak(word.en, "en")
+        }
+        frSoundButton.setOnClickListener {
+            viewModel.speak(word.fr.toString(), "fr")
+        }
 
         closeButton.setOnClickListener {
             popupDialog.dismiss()
@@ -80,8 +89,11 @@ class HomeFragment : Fragment() {
             clickWord(word)
             popupDialog.dismiss()
         }
+
+
         popupDialog.show()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

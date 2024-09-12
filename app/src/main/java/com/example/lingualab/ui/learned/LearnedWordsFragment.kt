@@ -1,12 +1,12 @@
 package com.example.lingualab.ui.learned
 
 import android.app.AlertDialog
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lingualab.R
 import com.example.lingualab.data.model.Word
@@ -32,6 +32,8 @@ class LearnedWordsFragment : Fragment() {
 
         binding.rvLearnedWordList.layoutManager = LinearLayoutManager(requireContext())
         viewModel.checkWordList()
+
+
 
         viewModel.learnedWords.observe(viewLifecycleOwner) {
             viewAdapter = LearnedWordListRecyclerView(it) { word ->
@@ -59,6 +61,8 @@ class LearnedWordsFragment : Fragment() {
         val addWordButton = popupBinding.addWordButton
         val closeButton = popupBinding.closeButton
         val elephantImage = popupBinding.elephantImageView
+        val enSoundButton = popupBinding.engSoundButton
+        val frSoundButton = popupBinding.frSoundButton
 
         elephantImage.setImageResource(R.drawable.sad_elephant)
         frenchWordText.text = word.fr
@@ -68,11 +72,18 @@ class LearnedWordsFragment : Fragment() {
         closeButton.setOnClickListener {
             popupDialog.dismiss()
         }
-
+        enSoundButton.setOnClickListener {
+            viewModel.speak(word.en, "en")
+        }
+        frSoundButton.setOnClickListener {
+            viewModel.speak(word.fr.toString(), "fr")
+        }
         addWordButton.setOnClickListener {
             viewModel.deleteWord(word)
             popupDialog.dismiss()
         }
+
+
 
         popupDialog.show()
     }

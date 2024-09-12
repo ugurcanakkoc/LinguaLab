@@ -5,20 +5,24 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.lingualab.data.model.Word
 import com.example.lingualab.data.sharedpreferences.SharedPreferencesRepository
+import com.example.lingualab.service.TtsService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LearnedWordsViewModel @Inject constructor(private val spRepository: SharedPreferencesRepository)  : ViewModel() {
+class LearnedWordsViewModel @Inject constructor(
+    private val spRepository: SharedPreferencesRepository,
+    private val ttsService: TtsService,
+) : ViewModel() {
 
     private val _learnedWords = MutableLiveData<List<Word>>()
-    val learnedWords : LiveData<List<Word>> get() = _learnedWords
+    val learnedWords: LiveData<List<Word>> get() = _learnedWords
 
     init {
         checkWordList()
     }
 
-    fun checkWordList(){
+    fun checkWordList() {
 
         _learnedWords.value = spRepository.getLearnedWords()
 
@@ -31,7 +35,16 @@ class LearnedWordsViewModel @Inject constructor(private val spRepository: Shared
 
     }
 
+    fun speak(text: String, language: String) {
 
+        if (language == "en")
+            ttsService.enSpeak(text)
+        else
+            ttsService.frSpeak(text)
 
+    }
+    fun stop() {
+        ttsService.stop()
+    }
 
 }

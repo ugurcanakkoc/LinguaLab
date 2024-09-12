@@ -12,4 +12,10 @@
         android:title="Learned"
         android:icon="@drawable/ic_learned_words"
          />
+
+    <item
+        android:id="@+id/gameFragment"
+        android:title="Game"
+        android:icon="@drawable/ic_launcher_foreground"
+        />
 </menu>

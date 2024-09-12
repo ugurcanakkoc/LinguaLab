@@ -15,4 +15,9 @@
         android:name="com.example.lingualab.ui.learned.LearnedWordsFragment"
         android:label="fragment_learned_words"
         tools:layout="@layout/fragment_learned_words" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.lingualab.ui.game.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" />
 </navigation>

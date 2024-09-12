@@ -6,15 +6,19 @@ import androidx.lifecycle.ViewModel
 import com.example.lingualab.data.model.Word
 import com.example.lingualab.data.model.getBaseAllWords
 import com.example.lingualab.data.sharedpreferences.SharedPreferencesRepository
+import com.example.lingualab.service.TtsService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val spRepository: SharedPreferencesRepository) :
+class HomeViewModel @Inject constructor(
+    private val spRepository: SharedPreferencesRepository,
+    private val ttsService: TtsService,
+) :
     ViewModel() {
 
 
-    private val allWord =  getBaseAllWords()
+    private val allWord = getBaseAllWords()
     private val checkedList = mutableListOf<Word>()
     private val _wordList = MutableLiveData<List<Word>>()
     val wordList: LiveData<List<Word>> = _wordList
@@ -24,7 +28,7 @@ class HomeViewModel @Inject constructor(private val spRepository: SharedPreferen
         checkedWordList()
     }
 
-    fun swipeRefresh(){
+    fun swipeRefresh() {
 
         isShuffled = !isShuffled
         checkedWordList()
@@ -35,7 +39,7 @@ class HomeViewModel @Inject constructor(private val spRepository: SharedPreferen
         var shuffledWords = allWord
         if (!isShuffled)
             shuffledWords = allWordShuffled()
-            isShuffled=true
+        isShuffled = true
         checkedList.clear()
         shuffledWords.forEach {
             if (!spRepository.isWordSaved(it)) {
@@ -58,5 +62,18 @@ class HomeViewModel @Inject constructor(private val spRepository: SharedPreferen
 
     private fun saveWord(word: Word) {
         spRepository.saveWord(word)
+    }
+
+    fun speak(text: String, language: String) {
+
+        if (language == "en")
+            ttsService.enSpeak(text)
+        else
+            ttsService.frSpeak(text)
+
+    }
+
+    fun stop() {
+        ttsService.stop()
     }
 }
