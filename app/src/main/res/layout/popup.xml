@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/background_popup"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Kutu -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:background="@color/background_box"
+        android:padding="16dp"
+        android:elevation="4dp"
+        android:layout_marginTop="16dp">
+
+        <ImageButton
+            android:id="@+id/closeButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_close"
+            android:contentDescription="Close Button"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/englishWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="İngilizce Kelime"
+                android:textColor="@android:color/black"
+                android:paddingStart="8dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/turkishWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Türkçe Kelime"
+                android:textColor="@android:color/black"
+                android:paddingEnd="8dp"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Fil Butonu (AddWord) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/elephantImageView"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:src="@drawable/happy_elephant"
+            android:contentDescription="Elephant Button" />
+
+        <Button
+            android:id="@+id/addWordButton"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/button_color"
+            android:text="Kelimeyi Ekle" />
+    </LinearLayout>
+
+</LinearLayout>
