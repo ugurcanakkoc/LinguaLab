@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "LinguaLab"
 include(":app")
+include(":appcompose")
