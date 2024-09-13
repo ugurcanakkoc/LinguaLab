@@ -1,6 +1,6 @@
 # LinguaLab
 
-**LinguaLab**, Türkçe kelimeleri öğrenirken, bu kelimelerin İngilizce ve Fransızca karşılıklarını görüp, telaffuzlarını duyabileceğiniz ve öğrendiğiniz kelimeleri test edebileceğiniz interaktif bir dil öğrenme uygulamasıdır.
+**LinguaLab**, Türkçe kelimelerin İngilizce ve Fransızca karşılıklarını öğrenirken, telaffuzlarını duyabileceğiniz ve öğrendiğiniz kelimeleri test edebileceğiniz interaktif bir dil öğrenme uygulamasıdır.
 
 ## Özellikler
 
