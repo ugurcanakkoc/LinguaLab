@@ -51,7 +51,8 @@ fun LearnedWordScreen(viewModel: LearnedWordsViewModel) {
                         contentDescription = "Elephant",
                         modifier = Modifier
                             .fillMaxSize()
-                            .alpha(0.3f).align(Alignment.Center),
+                            .alpha(0.3f)
+                            .align(Alignment.Center),
                         contentScale = ContentScale.FillWidth
                     )
                 }

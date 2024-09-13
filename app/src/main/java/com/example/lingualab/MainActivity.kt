@@ -1,7 +1,6 @@
 package com.example.lingualab
 
 import android.os.Bundle
-import android.view.WindowInsetsController
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,7 +10,6 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.lingualab.databinding.ActivityMainBinding
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,8 +34,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun createBottomNavigation(){
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+    private fun createBottomNavigation() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val bottomNavigation = binding.bottomNavigation
         bottomNavigation.setupWithNavController(navHostFragment.navController)
 

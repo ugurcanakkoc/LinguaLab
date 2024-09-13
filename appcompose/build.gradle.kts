@@ -70,8 +70,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation ("androidx.navigation:navigation-compose:2.8.0")
-    implementation ("com.google.accompanist:accompanist-swiperefresh:0.30.1")
+    implementation("androidx.navigation:navigation-compose:2.8.0")
+    implementation("com.google.accompanist:accompanist-swiperefresh:0.30.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
 

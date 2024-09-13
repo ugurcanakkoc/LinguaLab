@@ -63,12 +63,11 @@ dependencies {
     implementation(libs.androidx.navigation.ui)
 
     //Swipe Refresh Layout
-     implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.androidx.swiperefreshlayout)
 
     //Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-    
 
 
 }

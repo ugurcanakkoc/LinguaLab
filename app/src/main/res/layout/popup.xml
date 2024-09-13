@@ -42,8 +42,8 @@
                 android:id="@+id/englishWord"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="8dp"
+                android:layout_weight="1"
                 android:hint="İngilizce Kelime"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
@@ -71,8 +71,8 @@
                 android:id="@+id/frenchWord"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="8dp"
+                android:layout_weight="1"
                 android:hint="Fransızca Kelime"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
@@ -97,6 +97,7 @@
             android:layout_height="128dp"
             android:contentDescription="Elephant Button"
             android:src="@drawable/happy_elephant" />
+
         <Button
             android:id="@+id/addWordButton"
             android:layout_width="wrap_content"

@@ -43,6 +43,7 @@ class LearnedWordsViewModel @Inject constructor(
             ttsService.frSpeak(text)
 
     }
+
     fun stop() {
         ttsService.stop()
     }

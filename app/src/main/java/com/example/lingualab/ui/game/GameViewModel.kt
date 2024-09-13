@@ -35,7 +35,7 @@ class GameViewModel @Inject constructor(
         val words = _learnedWords.value
         if (words.isNullOrEmpty()) {
             _questions.value = "No words available"
-            _answer.value =  "No words available"
+            _answer.value = "No words available"
             return
         }
 

@@ -20,10 +20,10 @@
 
         <ImageView
             android:id="@+id/elephantImageView"
-            android:layout_marginTop="102dp"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
+            android:layout_marginTop="102dp"
 
             android:src="@drawable/happy_elephant_3" />
 

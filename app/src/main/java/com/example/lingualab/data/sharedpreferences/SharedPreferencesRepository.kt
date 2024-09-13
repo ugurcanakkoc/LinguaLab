@@ -29,7 +29,6 @@ class SharedPreferencesRepository @Inject constructor(private val sharedPreferen
     }
 
 
-
     fun saveWord(word: Word) {
         sharedPreferences.edit()?.putString(word.en, word.tr)?.apply()
     }

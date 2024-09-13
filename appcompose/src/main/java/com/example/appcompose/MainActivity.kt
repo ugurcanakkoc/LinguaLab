@@ -1,7 +1,6 @@
 package com.example.appcompose
 
 import android.annotation.SuppressLint
-import android.content.res.Resources.Theme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,17 +14,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.appcompose.data.model.Screen
 import com.example.appcompose.ui.home.HomeScreen
-import com.example.appcompose.ui.learned.LearnedWordScreen
-import com.example.appcompose.ui.theme.NavigationBar
 import com.example.appcompose.ui.home.HomeViewModel
+import com.example.appcompose.ui.learned.LearnedWordScreen
 import com.example.appcompose.ui.learned.LearnedWordsViewModel
+import com.example.appcompose.ui.theme.NavigationBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

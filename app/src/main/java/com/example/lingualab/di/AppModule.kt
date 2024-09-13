@@ -23,6 +23,6 @@ object AppModule {
     @Provides
     @Singleton
     fun provideTextToSpeech(application: Application): TextToSpeech {
-        return TextToSpeech(application,null)
+        return TextToSpeech(application, null)
     }
 }

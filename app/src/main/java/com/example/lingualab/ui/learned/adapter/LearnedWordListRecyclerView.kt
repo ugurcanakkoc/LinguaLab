@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lingualab.R
 import com.example.lingualab.data.model.Word
 
-class LearnedWordListRecyclerView(private val wordList: List<Word>,
-                                  val onClickVHolder: (Word) -> Unit) :
+class LearnedWordListRecyclerView(
+    private val wordList: List<Word>,
+    val onClickVHolder: (Word) -> Unit,
+) :
     RecyclerView.Adapter<LearnedWordListRecyclerView.WordViewHolder>() {
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -35,7 +37,6 @@ class LearnedWordListRecyclerView(private val wordList: List<Word>,
     override fun getItemCount(): Int {
         return wordList.size
     }
-
 
 
 }

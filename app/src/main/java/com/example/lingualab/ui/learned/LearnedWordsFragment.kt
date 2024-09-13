@@ -41,7 +41,7 @@ class LearnedWordsFragment : Fragment() {
             if (it.isNullOrEmpty()) {
                 binding.rvLearnedWordList.visibility = View.GONE
                 binding.learnedEmptyImage.visibility = View.VISIBLE
-            }else {
+            } else {
                 binding.rvLearnedWordList.visibility = View.VISIBLE
                 binding.learnedEmptyImage.visibility = View.GONE
             }
