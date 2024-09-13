@@ -14,25 +14,31 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-android:gravity="center"
+        android:gravity="center"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
+
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:id="@+id/elephantImageView"
+            android:layout_marginTop="102dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+
             android:src="@drawable/happy_elephant_3" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="150dp" />
+            android:layout_height="80dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:gravity="center"
-            android:textSize="24dp"
-            android:text="Önce birkaç kelime ezberlemelisin. Diğer sayfaya lütfen!">
+            android:text="Önce birkaç kelime ezberlemelisin. Diğer sayfaya lütfen!"
+            android:textSize="18dp">
 
         </TextView>
 
@@ -121,10 +127,10 @@ android:gravity="center"
         android:layout_gravity="center"
         android:layout_margin="32dp"
         android:layout_marginTop="19dp"
-        android:minHeight="48dp"
         android:backgroundTint="@color/button_color"
-        android:textColor="@color/black"
+        android:minHeight="48dp"
         android:text="Kontrol et"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

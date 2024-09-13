@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -69,6 +70,8 @@ class HomeFragment : Fragment() {
         val addWordButton = popupBinding.addWordButton
         val closeButton = popupBinding.closeButton
         val elephantImage = popupBinding.elephantImageView
+        val animation = AnimationUtils.loadAnimation(requireContext(), R.anim.wave)
+        elephantImage.startAnimation(animation)
 
         elephantImage.setImageResource(R.drawable.happy_elephant)
         frenchWordEditText.text = word.fr
@@ -83,10 +86,13 @@ class HomeFragment : Fragment() {
 
         closeButton.setOnClickListener {
             popupDialog.dismiss()
+            elephantImage.clearAnimation()
+
         }
 
         addWordButton.setOnClickListener {
             clickWord(word)
+            elephantImage.clearAnimation()
             popupDialog.dismiss()
         }
 

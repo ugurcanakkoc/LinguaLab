@@ -36,7 +36,6 @@ fun WordPopup(
     frenchWord: String,
     englishSoundIcon: Painter,
     frenchSoundIcon: Painter,
-    popupIcon: Painter,
     elephantIcon: Painter,
     onAddWordClick: () -> Unit,
     enClickSound: () -> Unit,
@@ -51,7 +50,7 @@ fun WordPopup(
     ) {
         Card(
             modifier = Modifier
-                .width(300.dp)
+                .fillMaxWidth()
                 .padding(16.dp),
             shape = RoundedCornerShape(12.dp),
             elevation = CardDefaults.cardElevation(8.dp)
@@ -72,14 +71,14 @@ fun WordPopup(
                 WordRow(
                     word = englishWord,
                     soundIcon = englishSoundIcon,
-                    popupIcon = popupIcon,
+                    popupIcon = R.drawable.en,
                     clickSound = { enClickSound() }
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 WordRow(
                     word = frenchWord,
                     soundIcon = frenchSoundIcon,
-                    popupIcon = popupIcon,
+                    popupIcon = R.drawable.fr,
                     clickSound = { frClickSound() }
 
                 )
@@ -114,7 +113,7 @@ fun WordPopup(
 fun WordRow(
     word: String,
     soundIcon: Painter,
-    popupIcon: Painter,
+    popupIcon: Int,
     clickSound: () -> Unit,
 ) {
     Row(
@@ -124,7 +123,7 @@ fun WordRow(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
-            painter = popupIcon,
+            painter = painterResource(popupIcon),
             contentDescription = "Popup Icon",
             modifier = Modifier.size(32.dp)
         )

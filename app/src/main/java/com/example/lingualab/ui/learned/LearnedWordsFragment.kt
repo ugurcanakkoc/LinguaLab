@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -71,6 +72,8 @@ class LearnedWordsFragment : Fragment() {
         val elephantImage = popupBinding.elephantImageView
         val enSoundButton = popupBinding.engSoundButton
         val frSoundButton = popupBinding.frSoundButton
+        val animation = AnimationUtils.loadAnimation(requireContext(), R.anim.wave)
+        elephantImage.startAnimation(animation)
 
         elephantImage.setImageResource(R.drawable.sad_elephant)
         frenchWordText.text = word.fr
@@ -79,6 +82,7 @@ class LearnedWordsFragment : Fragment() {
 
         closeButton.setOnClickListener {
             popupDialog.dismiss()
+            elephantImage.clearAnimation()
         }
         enSoundButton.setOnClickListener {
             viewModel.speak(word.en, "en")
@@ -89,6 +93,7 @@ class LearnedWordsFragment : Fragment() {
         addWordButton.setOnClickListener {
             viewModel.deleteWord(word)
             popupDialog.dismiss()
+            elephantImage.clearAnimation()
         }
 
 

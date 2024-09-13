@@ -47,15 +47,18 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val waveAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.wave)
         viewModel.questions.observe(viewLifecycleOwner) {
             wordTextView.text = it
         }
         viewModel.learnedWords.observe(viewLifecycleOwner) {
             if (it.isEmpty()) {
+                binding.elephantImageView.startAnimation(waveAnimation)
                 binding.emptyPage.visibility = View.VISIBLE
                 binding.cardView.visibility = View.GONE
                 binding.checkButton.visibility = View.GONE
             } else {
+                binding.elephantImageView.clearAnimation()
                 binding.emptyPage.visibility = View.GONE
                 binding.cardView.visibility = View.VISIBLE
                 binding.checkButton.visibility = View.VISIBLE

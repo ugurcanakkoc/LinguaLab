@@ -70,7 +70,7 @@ fun HomeScreen(viewModel: HomeViewModel) {
                 frenchWord = it.fr!!,
                 englishSoundIcon = painterResource(id = R.drawable.ic_sound),
                 frenchSoundIcon = painterResource(id = R.drawable.ic_sound),
-                popupIcon = painterResource(id = R.drawable.ic_popup),
+
                 elephantIcon = painterResource(id = R.drawable.happy_elephant),
                 onAddWordClick = {
                     viewModel.saveAndRemoveWord(it)

@@ -67,7 +67,6 @@ fun LearnedWordScreen(viewModel: LearnedWordsViewModel) {
                 frenchWord = word.fr!!,
                 englishSoundIcon = painterResource(id = R.drawable.ic_sound),
                 frenchSoundIcon = painterResource(id = R.drawable.ic_sound),
-                popupIcon = painterResource(id = R.drawable.ic_popup),
                 elephantIcon = painterResource(id = R.drawable.sad_elephant),
                 onAddWordClick = {
                     viewModel.deleteWord(word)

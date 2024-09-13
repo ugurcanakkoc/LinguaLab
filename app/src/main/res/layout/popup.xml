@@ -36,7 +36,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/ic_popup" />
+                android:src="@drawable/en" />
 
             <TextView
                 android:id="@+id/englishWord"
@@ -65,7 +65,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/ic_popup" />
+                android:src="@drawable/fr" />
 
             <TextView
                 android:id="@+id/frenchWord"
