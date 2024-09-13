@@ -93,7 +93,7 @@ class GameFragment : Fragment() {
         } else if (viewModel.score.value!! <= 0) {
 
             messageTextView.text =
-                "Oyun Bitti. \n Puanın: ${viewModel.score.value}\n Tekrar Başlayalım!"
+                "Oyun Bitti. \n En yüksek puanın: ${viewModel.bestScore.value}\n Tekrar Başlayalım!"
             elephantImageView.setImageResource(R.drawable.happy_elephant_3)
             nextButton.setOnClickListener {
                 viewModel.reset()

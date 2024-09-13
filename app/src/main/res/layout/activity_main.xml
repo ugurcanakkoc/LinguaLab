@@ -37,6 +37,7 @@
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/navigation_bar"
             app:menu="@menu/bottom_menu" />
     </androidx.cardview.widget.CardView>
 

@@ -20,6 +20,9 @@ class GameViewModel @Inject constructor(
     private val _answer = MutableLiveData<String>()
     val answer: LiveData<String> = _answer
 
+    private val _bestScore = MutableLiveData<Int>()
+    val bestScore: LiveData<Int> = _bestScore
+
     private val _questions = MutableLiveData<String>()
     val questions: LiveData<String> = _questions
 
@@ -60,14 +63,24 @@ class GameViewModel @Inject constructor(
 
     private fun increaseScore() {
         _score.value = (_score.value ?: 0) + 1
+        checkBestScore()
     }
 
     private fun decreaseScore() {
         _score.value = (_score.value ?: 0) - 1
     }
 
+    private fun checkBestScore() {
+        val currentScore = _score.value ?: 0
+        val currentBestScore = _bestScore.value ?: 0
+        if (currentScore > currentBestScore) {
+            _bestScore.value = currentScore
+        }
+    }
+
     fun reset() {
         _score.value = 0
+        _bestScore.value = 0
         getLearnedWords()
     }
 
