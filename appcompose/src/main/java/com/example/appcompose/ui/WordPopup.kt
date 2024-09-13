@@ -41,8 +41,8 @@ fun WordPopup(
     onAddWordClick: () -> Unit,
     enClickSound: () -> Unit,
     frClickSound: () -> Unit,
-
-    ) {
+    message: String,
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -100,7 +100,9 @@ fun WordPopup(
                             .padding(start = 16.dp)
                             .align(Alignment.CenterVertically)
                     ) {
-                        Text(text = "Kelimeyi Ekle")
+
+                        Text(text = message)
+
                     }
                 }
             }

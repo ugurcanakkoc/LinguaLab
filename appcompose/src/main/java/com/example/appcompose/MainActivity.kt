@@ -24,6 +24,7 @@ import com.example.appcompose.ui.home.HomeScreen
 import com.example.appcompose.ui.learned.LearnedWordScreen
 import com.example.appcompose.ui.theme.NavigationBar
 import com.example.appcompose.ui.home.HomeViewModel
+import com.example.appcompose.ui.learned.LearnedWordsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -58,7 +59,9 @@ fun NavigationHost(navController: NavHostController) {
             HomeScreen(viewModel)
         }
         composable(Screen.LearnedWords.route) {
-            LearnedWordScreen()
+            val viewModel = hiltViewModel<LearnedWordsViewModel>()
+
+            LearnedWordScreen(viewModel)
         }
     }
 }

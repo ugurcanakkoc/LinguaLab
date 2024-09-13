@@ -23,11 +23,13 @@ class HomeViewModel @Inject constructor(
     val wordList: StateFlow<List<Word>> = _wordList
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing
+
     var isShuffled = false
 
     init {
         checkedWordList()
     }
+
 
     fun swipeRefresh() {
         _isRefreshing.value = true
