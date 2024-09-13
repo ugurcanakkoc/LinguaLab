@@ -35,7 +35,15 @@ class LearnedWordsFragment : Fragment() {
 
 
 
+
         viewModel.learnedWords.observe(viewLifecycleOwner) {
+            if (it.isNullOrEmpty()) {
+                binding.rvLearnedWordList.visibility = View.GONE
+                binding.learnedEmptyImage.visibility = View.VISIBLE
+            }else {
+                binding.rvLearnedWordList.visibility = View.VISIBLE
+                binding.learnedEmptyImage.visibility = View.GONE
+            }
             viewAdapter = LearnedWordListRecyclerView(it) { word ->
                 showPopup(word)
             }

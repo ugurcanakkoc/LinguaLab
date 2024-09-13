@@ -7,7 +7,19 @@
     android:background="@color/background"
     tools:context=".ui.learned.LearnedWordsFragment">
 
+
+    <ImageView
+        android:id="@+id/learnedEmptyImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/app_logo"
+        android:alpha="0.3"
+        >
+
+    </ImageView>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
         android:id="@+id/rvLearnedWordList"
 
         android:layout_width="match_parent"
